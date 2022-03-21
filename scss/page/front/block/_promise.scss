@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+.promise {
+    background-color: g.$bg-pink;
+    padding: 9rem 0 14rem;
+    @include g.mq('sp') {
+      padding: 3.5rem 0;
+    }
+    &__heading {
+        @include g.heading(3rem);
+    }
+    &__message {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    &__text {
+        font-size: 2rem;
+        letter-spacing: 0.05em;
+        margin: 0;
+        font-weight: 500;
+        @include g.mq('sp') {
+            display: inline-block;
+            text-align: left;
+        }
+        br {
+            display: none;
+            @include g.mq('sp') {
+                display: inline-block;
+            }
+        }
+    }
+    &__wrapper {
+        max-width: g.$inner-width;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        @include g.mq('sp') {
+            flex-direction: column;
+        }
+    }
+    &__box {
+        width: 37%;
+        padding: 3rem 5rem;
+        border-radius: 20px;
+        box-shadow: 5px 10px 20px #86868640;
+        background-color: #fff;
+        text-align: center;
+        @include g.mq('tab') {
+            width: 43%;
+        }
+        @include g.mq('sp') {
+            width: 85%;
+            margin: 0 auto 4rem;
+            padding: 2rem 3rem;
+        }
+    }
+    &__icon {
+        color: g.$icon;
+        font-size: 5rem;
+        @include g.mq('sp') {
+            font-size: 4rem;
+        }
+    }
+    &__title {
+        font-size: 2.7rem;
+        text-align: center;
+        margin: 1rem 0;
+        @include g.mq('sp') {
+            font-size: 2.2rem;
+        }
+    }
+    &__detail {
+        text-align: left;
+        letter-spacing: 0.05em;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        line-height: 1.6;
+    }
+}

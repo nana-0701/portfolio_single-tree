@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+
+.loading{
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: map-get(g.$z, loading);
+  &__inner {
+      width: 5em;
+      height: 5em;
+      border-top: 1em solid g.$gray-arrow;
+      border-right: 1em solid g.$gray-arrow;
+      border-bottom: 1em solid g.$gray-arrow;
+      border-left: 1em solid g.$gray-loading;
+      animation: loader-anime 1s infinite linear;
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      z-index: map-get(g.$z, loading__inner);    
+  }
+}
+      
+@keyframes loader-anime {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

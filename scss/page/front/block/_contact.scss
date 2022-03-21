@@ -1,0 +1,282 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+
+.contact {
+    padding: 7rem 0 4rem;
+    overflow: hidden;
+    @include g.mq('sp') {
+        padding: 3.5rem 0;
+    }  
+    &__heading {
+        @include g.heading(3rem);
+    }
+    &__message {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    &__text {
+        text-align: center;
+        font-size: 1.8rem;
+        letter-spacing: 0.05em;
+        margin: 0;
+        @include g.mq('sp') {
+            display: inline-block;
+            text-align: left;
+        }
+    }
+    &__text--br {
+        display: none;
+        @include g.mq('sp') {
+            display: inline-block;
+        }
+    }
+    &__wrapper {
+        max-width: g.$inner-width;
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
+.form {
+    background-color: g.$bg-green;
+    border: 1px solid g.$border;
+    padding: 6rem 8rem;
+    margin: 0 auto 4rem;
+    border-radius: 30px;
+    box-shadow: 5px 10px 20px #86868640;
+    @include g.mq('sp') {
+        padding: 4rem 2.5rem;
+    }
+    &__row {
+        display: flex;
+        border-bottom: 1px solid g.$border;
+        padding: 3rem 0;
+        @include g.mq('tab') {
+            flex-direction: column;
+        }
+    }
+    &__label {
+        font-weight: bold;
+        width: 30%;
+        @include g.mq('tab') {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        span {
+            background-color: g.$click;
+            color: #fff;
+            border-radius: 8px;
+            padding: 0.3rem 0;
+            font-weight: 600;
+            width: 50px;
+            font-size: 1.4rem;
+            display: inline-block;
+            text-align: center;
+            margin-right: 1rem;
+        }
+    }
+    &__inner {
+        width: 70%;
+        @include g.mq('tab') {
+            width: 100%;
+        }
+    }
+    &__input,
+    &__textarea {
+        border: 1px solid g.$border;
+        padding: 1rem;
+        font-size: 1.6rem;
+        background-color: #fff;
+        border-radius: 6px;
+        width: 100%;
+    }
+    &__text {
+        margin: 0;
+        padding: 0.5rem;
+        font-size: 1.4rem;
+        br {
+            @include g.mq('sp') {
+                display: none;
+            }
+        }
+    }
+    &__textarea {
+        resize: none;
+    }
+    &__btn {
+        @include g.btn;
+        width: 38%;
+        border: none;
+        display: block;
+        margin: 3rem auto 0;
+        @include g.mq('sp') {
+            width: 100%;
+        }
+    }
+}
+
+//check box
+.check {
+    border-bottom: 1px solid g.$border;
+    padding-bottom: 3rem;
+    &__flex {
+        display: flex;
+        align-items: center;
+        @include g.mq('tab') {
+            flex-direction: column;
+        }
+    }
+    &__legend {
+        font-weight: bold;
+        width: 30%;
+        @include g.mq('tab') {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        span {
+            background-color: g.$click;
+            color: #fff;
+            border-radius: 8px;
+            padding: 0.3rem 0;
+            font-weight: 600;
+            width: 50px;
+            font-size: 1.4rem;
+            display: inline-block;
+            text-align: center;
+            margin-right: 1rem;
+        }
+    }
+    &__inner {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        @include g.mq('tab') {
+            width: 100%;
+        }
+    }
+    &__container {
+        width: 50%;
+        margin-bottom: 2rem;
+        @include g.mq('sp') {
+            width: 100%;
+            margin-left: 1rem;
+        }
+        &:last-of-type {
+            @include g.mq('sp') {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        &:hover > .check__dummy{
+            transform: scale(1.1);
+        }
+    }
+    &__input {
+        margin: 0;
+        width: 0;
+        opacity: 0;
+        &:focus + .check__dummy{
+            transform: scale(1.1);
+        }
+        &:checked + .check__dummy {
+            background: g.$click;
+        }
+        &:checked + .check__dummy::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 35%;
+            height: 4px;
+            border-radius: 2px;
+            transform: translate(-6px, 5px) rotateZ(-135deg);
+            transform-origin: 2px 2px;
+            background: #FFF;
+        }
+        &:checked + .check__dummy::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70%;
+            height: 4px;
+            border-radius: 2px;
+            transform: translate(-6px, 5px) rotateZ(-45deg);
+            transform-origin: 2px 2px;
+            background: #FFF;
+        }
+    }
+    &__dummy {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 28px;
+        height: 28px;
+        border: 1px solid g.$border;
+        background-color: #fff;
+        border-radius: 4px;
+        transition: all .15s linear;
+    }
+    &__span {
+        margin-left: 1.2rem;
+        display: block;
+        font-weight: 500;
+    }
+}
+
+//false message
+.false-message {
+    display: none;
+}
+
+//error message
+.form__input.invalid,
+.form__textarea.invalid {
+    background-color: #ffe1e1;
+}
+
+.form__error{
+    color: #ff7676;
+    display: none;
+}
+
+.form__error.invalid{
+    display: block;
+}
+
+
+//social media
+.social {
+    text-align: center;
+    &__text {
+        font-size: 2.2rem;
+        margin: 0 0 1.5rem;
+        @include g.mq('sp') {
+            font-size: 1.8rem;
+        }
+    }
+    &__twitter {
+        font-size: 5.5rem;
+        color: g.$click;
+        font-family: "Font Awesome 5 Brands";
+        @include g.mq('sp') {
+            font-size: 5rem;
+        }
+        &:hover {
+            color: g.$icon;
+            opacity: 1;
+        }  
+        a {
+            display: inline;
+        }
+    }
+}

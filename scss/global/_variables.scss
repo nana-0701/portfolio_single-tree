@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+//inner width
+$inner-width: 1180px;
+
+//breakpoints
+$breakpoints: (
+  sp: "screen and (max-width: 767px)",
+  tab: "screen and (max-width: #{$inner-width - 1px})",
+  pc: "screen and (min-width: #{$inner-width})",
+);
+
+//image path
+$img-dir: "../../img/";
+
+//color
+$bg-green: #c4e6cd3d;
+$bg-pink: #fff4ef;
+$click: #598987;
+$icon: #f89063;
+$border: #ddd;
+$gray-loading: #eee;  
+$gray-arrow: #c4c4c4; // page top arrow
+
+//z-index
+$z: (
+ loading: 30,
+ loading__inner: 25,
+ js-hamburger: 20,
+ js-header__menu: 15,
+ js-hamburger-bg: 10,
+ header: 5,
+);
+

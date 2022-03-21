@@ -1,0 +1,330 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+
+.header {
+  height: 80px;
+  position: absolute;
+  z-index: map-get(g.$z, header);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  color: #fff;
+  @include g.mq('sp') {
+    padding: 0 2rem;
+    height: 60px;
+  }
+  &__logo {
+    animation: slideRight 5s ease-out 1s;
+    max-width: 180px;
+    width: 100%;
+    img {
+      display: block;
+    }
+    @include g.mq('tab') {
+      animation: none;
+    }
+    @include g.mq('sp') {
+      max-width: 120px;
+    }
+  }
+  &__menu {
+    margin-left: auto;
+    animation: slideLeft 5s ease-out 1s;
+    @include g.mq('tab') {
+      animation: none;
+    }
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    letter-spacing: 0.2em;
+    @include g.mq('tab') {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+.header__item {
+  margin-right: 3.5rem;
+  @include g.mq('tab') {
+    margin: 0 0 3rem;
+    font-weight: 600;
+  }
+  a {
+    position: relative;
+    padding: 0.5rem 1rem;
+    &::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 1px;
+      background: #fff;
+      transform: scale(0, 1);
+      transition: 0.4s;
+      @include g.mq('tab') {
+        background: #000;
+      }
+    }
+    &:hover {
+      opacity: 1;
+    }
+    &:hover::before {
+      transform: scale(1);
+    }
+  }
+}
+
+.header__item--btn a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  &::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scale(0, 1);
+    transition: 0.4s;
+    @include g.mq('tab') {
+      content: none;
+    }
+  }
+  &:hover::before {
+    transform: scale(1);
+  }
+  @include g.mq('tab') {
+    text-align: center;
+    border-radius: 50px;
+    background-color: g.$click;
+    height: 45px;
+    line-height: 45px;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
+    color: #fff;
+    font-weight: bold;    
+    padding: 0;
+  }
+  &:hover {
+    opacity: 1;
+    @include g.mq('tab') {
+      color: g.$click;
+      background-color: #fff;
+      transition: .3s;
+    }
+  }
+}
+
+//.header__link animation slide to right
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+//.header__menu animation slide to left
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+
+// humburger btn
+.hamburger {
+  display: none;
+  @include g.mq('tab') {
+    display: inline-block;
+    text-decoration: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.js-hamburger {
+  @include g.mq('tab') {
+    position: relative;
+    z-index: map-get(g.$z, js-hamburger);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    box-shadow: 0 0 2rem transparent;
+    outline: none;
+    transition: all .3s ease-in-out;
+    margin-left: auto;
+  }
+  @include g.mq('sp') {
+    width: 40px;
+    height: 40px;
+  }
+  &__line {
+    @include g.mq('tab') {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      width: 18px;
+      height: 2px;
+      background-color: #fff;
+      transition: inherit;
+    }
+    &::before,
+    &::after {
+      @include g.mq('tab') {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        content: '';
+        transition: inherit;
+      }
+    }
+    &::before {
+      @include g.mq('tab') {
+        top: -5px;
+      }
+    }
+    &::after {
+      @include g.mq('tab') {
+        top: 5px;
+      }
+    }
+  } 
+}
+
+//drawer-background
+.js-hamburger-bg {
+  @include g.mq('tab') {
+    position: fixed;
+    z-index: map-get(g.$z, js-hamburger-bg);
+    width: 100vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #000;
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+// when drawer is open
+.is-drawer-active {
+  .js-header__menu {
+    @include g.mq('tab') {
+      transform: translateX(0px);
+      transition: 0.3s;
+    }
+  }
+  .js-hamburger-bg {
+    @include g.mq('tab') {
+      visibility: visible;
+      opacity: 0.8;
+      transition: 0.3s;
+    }
+  }
+}
+
+// when hamburger btn is open
+.js-hamburger[aria-expanded="true"] {
+  border: 1px solid #000;
+}
+
+.js-hamburger[aria-expanded="true"] .js-hamburger__line {
+  @include g.mq('tab') {
+    background-color: transparent;
+  }
+  &::before,
+  &::after {
+    @include g.mq('tab') {
+      top: 0;
+      background-color: #000;
+    }
+  }
+}
+
+.js-hamburger[aria-expanded="true"] .js-hamburger__line {
+  &::before {
+    @include g.mq('tab') {
+      transform: rotate(45deg);
+    }
+  }
+  &::after {
+    @include g.mq('tab') {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+//when header menu is open
+.js-header__menu {
+  @include g.mq('tab') {
+    position: fixed;
+    z-index: map-get(g.$z, js-header__menu);
+    width: 280px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+    transform: translateX(280px);
+    transition: 0.3s;
+    padding: 8rem 2rem;
+  }
+}
+
+//header fixed 
+.fixed.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 17px rgba(0, 0, 0, 0.2);
+  color:#000;
+}
+
+.fixed.header__item a::before {
+  background: #000;
+}
+
+.fixed.header__item--btn a {
+  @include g.btn;
+  padding: 0 3rem;
+}
+
+.fixed.header__item--btn a::before {
+  content: none;
+}
+
+.fixed.js-hamburger {
+  border: 1px solid #000;
+}
+
+.fixed.js-hamburger__line {
+  background-color: #000;
+}

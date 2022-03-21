@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+
+.about {
+  overflow: hidden;
+  padding: 8rem 0;
+  background-color: g.$bg-green;
+  @include g.mq('sp') {
+    padding: 6rem 0;
+  }
+  &__wrapper {
+    max-width: 1000px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 6rem 5rem;
+    border-radius: 20px;
+    box-shadow: 5px 10px 20px #86868640;
+    @include g.mq('tab') {
+      padding: 3rem;
+    }  
+  }
+  &__heading {
+    @include g.heading(5rem);
+  }
+}
+
+.profile {
+  margin-bottom: 4rem;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include g.mq('tab') {
+      flex-direction: column;
+    }
+  }
+  &__pic {
+    width: 40%;
+    height: auto;
+    margin: 0 4% 0 0;
+    position: relative;
+    img {
+      border-radius: 20px;
+      height: 100%;
+    }
+    @include g.mq('tab') {
+      margin: 0 auto 3rem;
+      width: 50%;
+    }
+    @include g.mq('sp') {
+      width: 80%;
+    }
+  }
+  &__content {
+    width: 60%;
+    @include g.mq('tab') {
+      width: 80%;
+      margin: 0 auto;
+    }
+    @include g.mq('sp') {
+      width: 100%;
+    }
+  }
+  &__greeting {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2.3rem;
+    @include g.mq('sp') {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    br {
+      display: none;
+      @include g.mq('tab') {
+        display: block;
+      }
+    }
+    span {
+      color: g.$click;
+      font-weight: bold;
+    }
+  }
+  &__text {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0 0 0.5rem 0;
+    &:nth-of-type(4) {
+      margin-bottom: 3rem;
+      @include g.mq('sp') {
+        margin-bottom: 1.5em;
+      }
+    }
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    @include g.mq('tab') {
+      justify-content: center;
+    }
+  }
+  &__twitter,
+  &__github {
+    font-size: 4.6rem;
+    color: g.$click;
+    font-family: "Font Awesome 5 Brands";
+    a:hover {
+      color: g.$icon;
+      opacity: 1;
+    }
+    @include g.mq('sp') {
+      font-size: 5rem;
+    }
+  }
+  &__twitter {
+    margin-right: 2.5rem;
+  }
+}
+
+.skills {
+  &__heading {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    border-bottom: 1px solid g.$border;
+    padding-bottom: 1rem;
+    @include g.mq('tab') {
+      font-size: 2rem;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include g.mq('tab') {
+      flex-wrap: wrap;
+    }
+    &::after {
+      @include g.mq('tab') {
+        display: block;
+        content: "";
+        width: 30%;
+        margin-bottom: 3rem;
+      }
+      @include g.mq('sp') {
+        width: 45%;
+        margin-bottom: 0;
+      }  
+    }
+  }
+  &__box {
+    text-align: center;
+    width: 15%;
+    @include g.mq('tab') {
+      width: 30%;
+      margin-bottom: 3rem;
+    }
+    @include g.mq('sp') {
+      width: 45%;
+    }
+    &:last-of-type {
+      @include g.mq('sp') {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__icon {
+    font-size: 4rem;
+    font-family: "Font Awesome 5 Brands";
+    color:  #2E3740;
+  }
+  &__title {
+    text-align: center; 
+    font-size: 1.8rem;
+    margin: 0.7rem 0;
+    font-weight: 500;
+  }
+}
+
+
+

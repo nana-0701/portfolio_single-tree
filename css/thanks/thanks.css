@@ -1,0 +1,111 @@
+.thanks {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+@media screen and (max-width: 767px) {
+  .thanks {
+    height: auto;
+  }
+}
+.thanks__wrapper {
+  border: 1px solid #598987;
+  border-radius: 20px;
+  margin: 12rem 0;
+  max-width: 900px;
+  padding: 4rem 5rem;
+  text-align: center;
+  width: 100%;
+}
+@media screen and (max-width: 1179px) {
+  .thanks__wrapper {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .thanks__wrapper {
+    margin: 6rem 0;
+    padding: 1rem 2rem 3rem;
+  }
+}
+.thanks__icon {
+  color: #fca354;
+  font-size: 8rem;
+}
+@media screen and (max-width: 767px) {
+  .thanks__icon {
+    font-size: 6rem;
+  }
+}
+.thanks__heading {
+  font-size: 3.4rem;
+}
+@media screen and (max-width: 1179px) {
+  .thanks__heading {
+    font-size: calc(2.7rem + (1vw - 0.77rem) * 1.6990);
+  }
+}
+@media screen and (max-width: 767px) {
+  .thanks__heading {
+    font-size: 2.7rem;
+  }
+}
+.thanks__heading br {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .thanks__heading br {
+    display: block;
+  }
+}
+.thanks__text {
+  font-size: 2rem;
+  line-height: 1.6;
+}
+@media screen and (max-width: 1179px) {
+  .thanks__text {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 1179px) {
+  .thanks__text--br {
+    display: none;
+  }
+}
+.thanks__btn {
+  -webkit-box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
+  background-color: #598987;
+  border-radius: 50px;
+  box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: bold;
+  height: 45px;
+  line-height: 45px;
+  margin: 3rem auto 0;
+  text-align: center;
+  width: 35%;
+}
+.thanks__btn:hover {
+  -webkit-transition: 0.6s;
+  background-color: #fff;
+  color: #598987;
+  opacity: 1;
+  transition: 0.6s;
+}
+@media screen and (max-width: 1179px) {
+  .thanks__btn {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .thanks__btn {
+    width: 100%;
+  }
+}

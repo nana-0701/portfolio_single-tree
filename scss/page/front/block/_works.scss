@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+
+.works {
+    background-color: #fcfcfc;
+    overflow: hidden;
+    padding: 7rem 0;
+    @include g.mq('sp') {
+        padding: 4rem 0;
+    }
+    &__heading {
+        @include g.heading(7rem);
+    }
+    &__wrapper {
+        max-width: g.$inner-width;
+        width: 95%;
+        margin: 0 auto;
+    }
+    &__box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12rem;
+        background-color: #fff;
+        box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        @include g.mq('tab') {
+            flex-direction: column;
+        }
+        @include g.mq('sp') {
+            margin-bottom: 7rem;
+        }
+    }
+    &__box {
+        padding: 7rem 5rem;
+        @include g.mq('tab') {
+            padding: 4rem 3rem;
+        }
+    }
+    &__box:nth-of-type(even) {
+        flex-direction: row-reverse;
+        @include g.mq('tab') {
+            flex-direction: column;
+        }
+    }
+    &__img {
+        width: 48%;
+        img {
+            border-radius: 20px;
+        }
+        @include g.mq('tab') {
+            width: 70%;
+            margin-bottom: 3rem;
+        }
+        @include g.mq('sp') {
+            width: 100%;
+        }
+    }
+    &__inner {
+        width: 48%;
+        @include g.mq('tab') {
+            width: 80%;
+        }
+        @include g.mq('sp') {
+            width: 100%;
+        }
+    }
+    &__title {
+        font-size: 2.7rem;
+        margin-bottom: 2rem;
+        @include g.mq('sp') {
+            font-size: 2.4rem;
+        }
+    }
+    &__title--sp {
+        display: none;
+        @include g.mq('sp') {
+            display: block;
+        }
+    }
+    &__term {
+        float: left;
+        margin: 0 1em 0.5rem 0;
+        font-weight: 600;
+        @include g.mq('sp') {
+            width: 100%;
+            margin-bottom: 0;
+            float: none;
+        }
+    }
+    &__desc {
+        margin-bottom: 0.5rem;
+        @include g.mq('sp') {
+            width: 100%;
+        }
+    }
+    &__btn {
+        @include g.btn;
+        width: 55%;
+        @include g.mq('tab') {
+            margin: 0 auto;
+        }
+        @include g.mq('sp') {
+            width: 100%;
+        }
+    }
+}
+
+.basic {
+    margin-bottom: 1rem;
+    &__text {
+        margin: 0;
+        font-size: 1.4rem;
+    }
+    &__term {
+        float: left;
+        font-size: 1.4rem;
+        margin-right: 1em;
+    }
+    &__desc {
+        font-size: 1.4rem;
+    }
+}

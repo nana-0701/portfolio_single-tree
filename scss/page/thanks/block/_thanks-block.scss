@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+@use "../../../global" as g;
+
+.thanks {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include g.mq('sp') {
+        height: auto;
+    }
+    &__wrapper {
+        max-width: 900px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid g.$click;
+        padding: 4rem 5rem;
+        border-radius: 20px;
+        margin: 12rem 0;
+        @include g.mq('tab') {
+            width: 90%;
+        }
+        @include g.mq('sp') {
+            padding: 1rem 2rem 3rem;
+            margin: 6rem 0;
+        }
+    }
+    &__icon{
+        font-size: 8rem;
+        color: #fca354;
+        @include g.mq('sp') {
+            font-size: 6rem;
+        }
+    }
+    &__heading {
+        font-size: 3.4rem;
+        @include g.mq('tab') {
+            font-size: calc(2.7rem + (1vw - 0.77rem) * 1.6990);
+        }
+        @include g.mq('sp') {
+            font-size: 2.7rem;
+        }
+        br {
+            display: none;
+            @include g.mq('sp') {
+                display: block;
+            }
+        }
+    }
+    &__text {
+        font-size: 2rem;
+        line-height: 1.6;
+        @include g.mq('tab') {
+            text-align: left;
+        }
+    }
+    &__text--br {
+        @include g.mq('tab') {
+            display: none;
+        }
+    }
+    &__btn {
+        @include g.btn;
+        width: 35%;
+        margin: 3rem auto 0;
+        @include g.mq('tab') {
+            width: 50%;
+        }
+        @include g.mq('sp') {
+            width: 100%;
+        }
+    }
+}
+
